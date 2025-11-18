@@ -261,13 +261,33 @@ const Index = () => {
                   style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))' }}
                 >
                   <div
-                    className="w-48 h-64 rounded-3xl flex items-center justify-center text-8xl animate-pulse-glow cursor-pointer"
+                    className="w-64 h-80 rounded-2xl flex items-center justify-center animate-pulse-glow cursor-pointer overflow-hidden relative"
                     style={{
-                      backgroundColor: currentBarrel.color,
-                      boxShadow: `0 0 40px ${currentBarrel.color}80`,
+                      boxShadow: `0 0 60px ${currentBarrel.color}80, inset 0 0 20px ${currentBarrel.color}40`,
+                      border: `4px solid ${currentBarrel.color}`,
                     }}
                   >
-                    🛢️
+                    <img 
+                      src="https://cdn.poehali.dev/files/4923ee54-3d03-4047-9248-972ac5bb9c83.jpg" 
+                      alt="Rust Barrel"
+                      className="w-full h-full object-cover"
+                      style={{
+                        filter: `hue-rotate(${
+                          currentBarrel.type === 'green' ? '0deg' : 
+                          currentBarrel.type === 'blue' ? '0deg' : 
+                          currentBarrel.type === 'red' ? '180deg' : 
+                          '45deg'
+                        }) brightness(${
+                          currentBarrel.type === 'gold' ? '1.3' : '1'
+                        })`,
+                      }}
+                    />
+                    <div 
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: `linear-gradient(135deg, ${currentBarrel.color}30, transparent)`,
+                      }}
+                    />
                   </div>
                 </button>
               </div>

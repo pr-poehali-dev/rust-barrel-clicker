@@ -68,7 +68,7 @@ const Index = () => {
   const [weapons, setWeapons] = useState<Weapon[]>([
     { id: 'rock', name: 'Камень', damage: 1, durability: Infinity, maxDurability: Infinity, price: 0, icon: 'https://cdn.poehali.dev/files/de4db201-eae7-4b97-adf4-9977a5eadf39.png' },
     { id: 'axe', name: 'Топор', damage: 10, durability: 100, maxDurability: 100, price: 50, icon: 'https://cdn.poehali.dev/files/467644e9-1582-455e-8970-1900b74e029b.png' },
-    { id: 'pickaxe', name: 'Кирка', damage: 25, durability: 150, maxDurability: 150, price: 200, icon: '⛏️' },
+    { id: 'pickaxe', name: 'Кирка', damage: 25, durability: 150, maxDurability: 150, price: 200, icon: 'https://cdn.poehali.dev/files/1f262649-f4b7-4e1f-b058-f3b23be99e04.png' },
     { id: 'drill', name: 'Бур', damage: 100, durability: 200, maxDurability: 200, price: 800, icon: '⚙️' },
   ]);
 

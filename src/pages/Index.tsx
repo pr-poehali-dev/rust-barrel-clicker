@@ -255,36 +255,40 @@ const Index = () => {
               <div className="flex justify-center mb-6">
                 <button
                   onClick={handleBarrelClick}
-                  className={`relative w-64 h-80 rounded-2xl overflow-hidden animate-pulse-glow transition-all duration-300 hover:scale-105 active:scale-95 ${
+                  className={`relative transition-all duration-300 hover:scale-105 active:scale-95 ${
                     isShaking ? 'animate-shake' : ''
                   }`}
-                  style={{
-                    boxShadow: `0 0 60px ${currentBarrel.color}80, inset 0 0 20px ${currentBarrel.color}40`,
-                    border: `4px solid ${currentBarrel.color}`,
-                    filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))'
-                  }}
+                  style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))' }}
                 >
-                  <img 
-                    src="https://cdn.poehali.dev/files/4923ee54-3d03-4047-9248-972ac5bb9c83.jpg" 
-                    alt="Rust Barrel"
-                    className="w-full h-full object-cover"
+                  <div
+                    className="w-64 h-80 rounded-2xl flex items-center justify-center animate-pulse-glow cursor-pointer overflow-hidden relative"
                     style={{
-                      filter: `hue-rotate(${
-                        currentBarrel.type === 'green' ? '0deg' : 
-                        currentBarrel.type === 'blue' ? '0deg' : 
-                        currentBarrel.type === 'red' ? '180deg' : 
-                        '45deg'
-                      }) brightness(${
-                        currentBarrel.type === 'gold' ? '1.3' : '1'
-                      })`,
+                      boxShadow: `0 0 60px ${currentBarrel.color}80, inset 0 0 20px ${currentBarrel.color}40`,
+                      border: `4px solid ${currentBarrel.color}`,
                     }}
-                  />
-                  <div 
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: `linear-gradient(135deg, ${currentBarrel.color}30, transparent)`,
-                    }}
-                  />
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/4923ee54-3d03-4047-9248-972ac5bb9c83.jpg" 
+                      alt="Rust Barrel"
+                      className="w-full h-full object-cover"
+                      style={{
+                        filter: `hue-rotate(${
+                          currentBarrel.type === 'green' ? '0deg' : 
+                          currentBarrel.type === 'blue' ? '0deg' : 
+                          currentBarrel.type === 'red' ? '180deg' : 
+                          '45deg'
+                        }) brightness(${
+                          currentBarrel.type === 'gold' ? '1.3' : '1'
+                        })`,
+                      }}
+                    />
+                    <div 
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: `linear-gradient(135deg, ${currentBarrel.color}30, transparent)`,
+                      }}
+                    />
+                  </div>
                 </button>
               </div>
 

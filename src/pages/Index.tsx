@@ -66,7 +66,7 @@ const Index = () => {
   const [isShaking, setIsShaking] = useState(false);
 
   const [weapons, setWeapons] = useState<Weapon[]>([
-    { id: 'fist', name: 'Кулак', damage: 1, durability: Infinity, maxDurability: Infinity, price: 0, icon: '👊' },
+    { id: 'rock', name: 'Камень', damage: 1, durability: Infinity, maxDurability: Infinity, price: 0, icon: 'https://cdn.poehali.dev/files/de4db201-eae7-4b97-adf4-9977a5eadf39.png' },
     { id: 'axe', name: 'Топор', damage: 10, durability: 100, maxDurability: 100, price: 50, icon: '🪓' },
     { id: 'pickaxe', name: 'Кирка', damage: 25, durability: 150, maxDurability: 150, price: 200, icon: '⛏️' },
     { id: 'drill', name: 'Бур', damage: 100, durability: 200, maxDurability: 200, price: 800, icon: '⚙️' },
@@ -79,7 +79,7 @@ const Index = () => {
 
   const handleBarrelClick = () => {
     if (currentWeapon.durability <= 0) {
-      toast.error('Оружие сломано! Купите новое или вернитесь к кулаку');
+      toast.error('Оружие сломано! Купите новое или вернитесь к камню');
       return;
     }
 
@@ -93,7 +93,7 @@ const Index = () => {
     updatedBarrels[currentBarrelIndex].hp = newHp;
     setBarrels(updatedBarrels);
 
-    if (currentWeapon.id !== 'fist') {
+    if (currentWeapon.id !== 'rock') {
       const updatedWeapons = weapons.map(w =>
         w.id === currentWeapon.id ? { ...w, durability: w.durability - 1 } : w
       );
@@ -320,7 +320,11 @@ const Index = () => {
               <Card className="p-4 bg-gradient-to-r from-orange-100 to-purple-100 border-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="text-4xl">{currentWeapon.icon}</span>
+                    {currentWeapon.icon.startsWith('http') ? (
+                      <img src={currentWeapon.icon} alt={currentWeapon.name} className="w-16 h-16 object-contain" />
+                    ) : (
+                      <span className="text-4xl">{currentWeapon.icon}</span>
+                    )}
                     <div>
                       <div className="font-bold text-lg">{currentWeapon.name}</div>
                       <div className="text-sm text-gray-600">Урон: {currentWeapon.damage}</div>
@@ -379,7 +383,11 @@ const Index = () => {
                       >
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-3">
-                            <span className="text-3xl">{weapon.icon}</span>
+                            {weapon.icon.startsWith('http') ? (
+                              <img src={weapon.icon} alt={weapon.name} className="w-12 h-12 object-contain" />
+                            ) : (
+                              <span className="text-3xl">{weapon.icon}</span>
+                            )}
                             <div>
                               <div className="font-bold">{weapon.name}</div>
                               <div className="text-sm text-gray-600">Урон: {weapon.damage}</div>
